@@ -32,18 +32,18 @@
  *
  */
 function* get99BottlesOfBeer() {
-    let bottles = 99;
-    while (bottles >= 3) {
-        yield `${bottles} bottles of beer on the wall, ${bottles} bottles of beer.`;
-        yield `Take one down and pass it around, ${--bottles} bottles of beer on the wall.`;
-    }
+  let bottles = 99;
+  while (bottles >= 3) {
+    yield `${bottles} bottles of beer on the wall, ${bottles} bottles of beer.`;
+    yield `Take one down and pass it around, ${--bottles} bottles of beer on the wall.`;
+  }
 
-    yield "2 bottles of beer on the wall, 2 bottles of beer.";
-    yield "Take one down and pass it around, 1 bottle of beer on the wall.";
-    yield "1 bottle of beer on the wall, 1 bottle of beer.";
-    yield "Take one down and pass it around, no more bottles of beer on the wall.";
-    yield "No more bottles of beer on the wall, no more bottles of beer.";
-    yield "Go to the store and buy some more, 99 bottles of beer on the wall.";
+  yield "2 bottles of beer on the wall, 2 bottles of beer.";
+  yield "Take one down and pass it around, 1 bottle of beer on the wall.";
+  yield "1 bottle of beer on the wall, 1 bottle of beer.";
+  yield "Take one down and pass it around, no more bottles of beer on the wall.";
+  yield "No more bottles of beer on the wall, no more bottles of beer.";
+  yield "Go to the store and buy some more, 99 bottles of beer on the wall.";
 }
 
 /**
@@ -56,15 +56,15 @@ function* get99BottlesOfBeer() {
  *
  */
 function* getFibonacciSequence() {
-    let a = 0;
-    let b = 1;
+  let a = 0;
+  let b = 1;
 
-    while (true) {
-        let current = a;
-        a = b;
-        b = current + a;
-        yield current;
-    }
+  while (true) {
+    let current = a;
+    a = b;
+    b = current + a;
+    yield current;
+  }
 }
 
 /**
@@ -97,16 +97,17 @@ function* getFibonacciSequence() {
  *  depthTraversalTree(node1) => node1, node2, node3, node4, node5, node6, node7, node8
  *
  */
-
 function* depthTraversalTree(root) {
-    let arr = [root];
-    while (arr.length) {
-        let current = arr.pop();
-        yield current;
-        if (current.children) {
-            arr.push(...current.children.reverse());
-        }
+  let arr = [];
+  arr.push(root);
+
+  while (arr.length) {
+    let current = arr.pop();
+    yield current;
+    if (current.children) {
+      current.children.reverse().forEach((x) => arr.push(x));
     }
+  }
 }
 
 /**
@@ -131,14 +132,14 @@ function* depthTraversalTree(root) {
  *
  */
 function* breadthTraversalTree(root) {
-    let arr = [root];
-    while (arr.length) {
-        let current = arr.pop();
-        yield current;
-        if (current.children) {
-            arr.unshift(...current.children.reverse());
-        }
+  let arr = [root];
+  while (arr.length) {
+    let current = arr.pop();
+    yield current;
+    if (current.children) {
+      arr.unshift(...current.children.reverse());
     }
+  }
 }
 
 /**
@@ -155,25 +156,24 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-    const arr = [source1(), source2()];
-    let iter = [arr[0].next(), arr[1].next()];
+  const arr = [source1(), source2()];
+  let iter = [arr[0].next(), arr[1].next()];
 
-    while (true) {
-        if (iter[0].value == undefined || iter[0].value >= iter[1].value) {
-            yield iter[1].value;
-            iter[1] = arr[1].next();
-        } else {
-            yield iter[0].value;
-            iter[0] = arr[0].next();
-        }
+  while (true) {
+    if (iter[0].value == undefined || iter[0].value >= iter[1].value) {
+      yield iter[1].value;
+      iter[1] = arr[1].next();
+    } else {
+      yield iter[0].value;
+      iter[0] = arr[0].next();
     }
+  }
 }
 
-
 module.exports = {
-    get99BottlesOfBeer: get99BottlesOfBeer,
-    getFibonacciSequence: getFibonacciSequence,
-    depthTraversalTree: depthTraversalTree,
-    breadthTraversalTree: breadthTraversalTree,
-    mergeSortedSequences: mergeSortedSequences,
+  get99BottlesOfBeer: get99BottlesOfBeer,
+  getFibonacciSequence: getFibonacciSequence,
+  depthTraversalTree: depthTraversalTree,
+  breadthTraversalTree: breadthTraversalTree,
+  mergeSortedSequences: mergeSortedSequences,
 };
