@@ -23,7 +23,6 @@
 function parseDataFromRfc2822(value) {
    return new Date(value);
 }
-console.log(parseDataFromRfc2822("Sun, 17 May 1998 03:00:00 GMT+01"));
 
 /**
  * Parses an ISO 8601 string date representation into date value
