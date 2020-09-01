@@ -97,6 +97,7 @@ function* getFibonacciSequence() {
  *  depthTraversalTree(node1) => node1, node2, node3, node4, node5, node6, node7, node8
  *
  */
+
 function* depthTraversalTree(root) {
     let arr = [root];
     while (arr.length) {
@@ -105,7 +106,6 @@ function* depthTraversalTree(root) {
         if (current.children) {
             arr.push(...current.children.reverse());
         }
-
     }
 }
 
@@ -138,7 +138,6 @@ function* breadthTraversalTree(root) {
         if (current.children) {
             arr.unshift(...current.children.reverse());
         }
-
     }
 }
 
