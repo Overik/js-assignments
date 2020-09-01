@@ -55,8 +55,6 @@ function getAverage(value1, value2) {
   return value1 / 2 + value2 / 2;
 }
 
-console.log(getAverage(-3, 3));
-
 /**
  * Returns a distance beetween two points by cartesian coordinates.
  *
@@ -115,7 +113,7 @@ function getLinearEquationRoot(a, b) {
 function getAngleBetweenVectors(x1, y1, x2, y2) {
   return Math.abs(Math.atan2(y2, x2) - Math.atan2(y1, x1));
 }
-console.log(getAngleBetweenVectors(0, -1, 1, 0));
+
 
 /**
  * Returns a last digit of a integer number.
@@ -214,8 +212,6 @@ function isPrime(n) {
   }
   return true;
 }
-
-//console.log(isPrime(16));
 
 /**
  * Tries to convert value to number and returns it if conversion was successfull;
