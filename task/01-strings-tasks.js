@@ -231,7 +231,6 @@ function encodeToRot13(str) {
       ]
   );
 }
-console.log(encodeToRot13("hello"));
 
 /**
  * Returns true if the value is string; otherwise false.
