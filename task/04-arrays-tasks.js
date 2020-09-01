@@ -329,7 +329,7 @@ function sortDigitNamesByNumericOrder(arr) {
    ];
    return arr.sort((a, b) => digits.indexOf(a) - digits.indexOf(b));
 }
-console.log(sortDigitNamesByNumericOrder(["one", "two", "three"]));
+
 
 /**
  * Returns the sum of all items in the specified array of numbers
@@ -569,8 +569,6 @@ function group(array, keySelector, valueSelector) {
 function selectMany(arr, childrenSelector) {
    return arr.map(childrenSelector).reduce((a, item) => a.concat(item), []);
 }
-console.log(selectMany(['one', 'two', 'three'], x => x.split('')));
-
 
 /**
  * Returns an element from the multidimentional array by the specified indexes.
