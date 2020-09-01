@@ -31,13 +31,15 @@
 function getFizzBuzz(num) {
     if (num % 3 == 0 && num % 5 == 0) {
         return "FizzBuzz";
-    } else if (num % 5 == 0) {
-        return "Buzz";
-    } else if (num % 3 == 0) {
-        return "Fizz";
-    } else {
-        return num;
     }
+    if (num % 5 === 0) {
+        return "Buzz";
+    }
+    if (num % 3 === 0) {
+        return "Fizz";
+    }
+    return num;
+
 }
 
 /**
@@ -326,15 +328,16 @@ function getDigitalRoot(num) {
 
     if (sum <= 9) {
         return sum;
-    } else {
-        let b = 0;
-        sum = (sum + "").split("");
-        for (let i = 0; i < sum.length; i++) {
-            b += +sum[i];
-        }
-        return b;
     }
+
+    let b = 0;
+    sum = (sum + "").split("");
+    for (let i = 0; i < sum.length; i++) {
+        b += +sum[i];
+    }
+    return b;
 }
+
 
 /**
  * Returns true if the specified string has the balanced brackets and false otherwise.
@@ -420,7 +423,7 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    let time = (endDate - startDate) / 1000;
+    const time = (endDate - startDate) / 1000;
     return time <= 45 ?
         "a few seconds ago" :
         time <= 90 ?
@@ -442,8 +445,7 @@ function timespanToHumanString(startDate, endDate) {
         time <= 545 * 24 * 60 * 60 ?
         "a year ago" :
         time >= 545 * 24 * 60 * 60 ?
-        Math.round((time - 0.001) / (365 * 24 * 60 * 60)) + " years ago" :
-        {};
+        Math.round((time - 0.001) / (365 * 24 * 60 * 60)) + " years ago" : {};
 }
 
 /**
@@ -574,7 +576,8 @@ function evaluateTicTacToePosition(position) {
         (position[0][2] == "X" && position[1][1] == "X" && position[2][0] == "X")
     ) {
         return "X";
-    } else if (
+    }
+    if (
         (position[0][0] == "0" && position[1][0] == "0" && position[2][0] == "0") ||
         (position[0][1] == "0" && position[1][1] == "0" && position[2][1] == "0") ||
         (position[0][2] == "0" && position[1][2] == "0" && position[2][2] == "0") ||
@@ -585,8 +588,6 @@ function evaluateTicTacToePosition(position) {
         (position[0][2] == "0" && position[1][1] == "0" && position[2][0] == "0")
     ) {
         return "0";
-    } else {
-        return undefined;
     }
 }
 
