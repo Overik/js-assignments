@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**********************************************************************************************
  *                                                                                            *
@@ -9,6 +9,7 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures                           *
  *                                                                                            *
  **********************************************************************************************/
+
 
 /**
  * Returns the functions composition of two specified functions f(x) and g(x).
@@ -27,6 +28,7 @@
 function getComposition(f, g) {
     return (x) => f(g(x));
 }
+
 
 /**
  * Returns the math power function with the specified exponent
@@ -47,6 +49,7 @@ function getComposition(f, g) {
 function getPowerFunction(exponent) {
     return (num) => Math.pow(num, exponent);
 }
+
 
 /**
  * Returns the polynom function of one argument based on specified coefficients.
@@ -77,6 +80,7 @@ function getPolynom(num1, num2, num3) {
     return (x) => a * Math.pow(x, 2) + b * x + c;
 }
 
+
 /**
  * Memoizes passed function and returns function
  * which invoked first time calls the passed function and then always returns cached result.
@@ -95,6 +99,7 @@ function memoize(func) {
     let val = func();
     return () => val;
 }
+
 
 /**
  * Returns the function trying to call the passed function and if it throws,
@@ -120,6 +125,7 @@ function retry(func, attempts) {
         }
     };
 }
+
 
 /**
  * Returns the logging wrapper for the specified method,
@@ -148,12 +154,13 @@ function logger(func, logFunc) {
     return function () {
         let args = JSON.stringify(Array.from(arguments)).slice(1, -1);
         let log = `${func.name}(${args})`;
-        logFunc(log + " starts");
+        logFunc(log + ' starts');
         let result = func.apply(undefined, arguments);
-        logFunc(log + " ends");
+        logFunc(log + ' ends');
         return result;
     };
 }
+
 
 /**
  * Return the function with partial applied arguments
@@ -177,6 +184,7 @@ function partialUsingArguments(fn) {
     };
 }
 
+
 /**
  * Returns the id generator function that returns next integer starting from specified number every time when invoking.
  *
@@ -196,6 +204,7 @@ function partialUsingArguments(fn) {
 function getIdGeneratorFunction(startFrom) {
     return () => startFrom++;
 }
+
 
 module.exports = {
     getComposition: getComposition,
